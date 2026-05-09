@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>famos | For Counsellors - Extending Your Impact</title>
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#f7faf8",
+                        "surface-container-low": "#f1f4f3",
+                        "tertiary-fixed": "#ffdbce",
+                        "surface-container-highest": "#e0e3e1",
+                        "inverse-on-surface": "#eef1f0",
+                        "on-secondary-fixed-variant": "#005047",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#4ddcc6",
+                        "on-tertiary-container": "#ffe5db",
+                        "surface-container": "#ebefed",
+                        "on-tertiary-fixed": "#370e00",
+                        "primary": "#005c55",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#181c1c",
+                        "primary-fixed": "#9cf2e8",
+                        "on-primary-fixed": "#00201d",
+                        "surface": "#f7faf8",
+                        "outline-variant": "#bdc9c6",
+                        "secondary-container": "#6ef9e2",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#f7faf8",
+                        "inverse-primary": "#80d5cb",
+                        "on-primary-fixed-variant": "#00504a",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#7f4025",
+                        "secondary-fixed": "#6ef9e2",
+                        "surface-variant": "#e0e3e1",
+                        "on-secondary-container": "#007164",
+                        "error": "#ba1a1a",
+                        "secondary": "#006b5e",
+                        "surface-tint": "#006a63",
+                        "surface-container-high": "#e5e9e7",
+                        "primary-fixed-dim": "#80d5cb",
+                        "tertiary-fixed-dim": "#ffb598",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error": "#ffffff",
+                        "primary-container": "#0f766e",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#d7dbd9",
+                        "inverse-surface": "#2d3130",
+                        "on-tertiary-fixed-variant": "#72361b",
+                        "on-background": "#181c1c",
+                        "on-primary-container": "#a3faef",
+                        "outline": "#6e7977",
+                        "on-surface-variant": "#3e4947",
+                        "tertiary-container": "#9c573a",
+                        "on-secondary-fixed": "#00201b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "120px",
+                        "container-max-width": "1280px",
+                        "unit": "8px",
+                        "gutter": "24px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Lexend"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Lexend"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Lexend"],
+                        "display-lg": ["Lexend"],
+                        "caption": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .soft-shadow {
+            box-shadow: 0 10px 30px rgba(0, 92, 85, 0.04);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-secondary-container">
+<!-- TopNavBar -->
+<nav class="sticky top-0 w-full z-50 bg-surface/70 backdrop-blur-md border-b border-primary/5 shadow-sm h-20">
+<div class="flex justify-between items-center max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop h-full">
+<div class="font-headline-lg text-headline-lg font-bold text-primary tracking-tight">famos</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-all duration-300" href="#">Why famos</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-all duration-300" href="#">For Parents</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-all duration-300" href="#">For Teens</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-all duration-300 font-bold relative after:content-[''] after:absolute after:-bottom-2 after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-1 after:bg-tertiary-container after:rounded-full" href="#">For Counsellors</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-all duration-300" href="#">About Us</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-all duration-300" href="#">Schools</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-label-md text-label-md hover:scale-105 active:scale-95 transition-transform duration-200">
+                Get Early Access
+            </button>
+</div>
+</nav>
+<main>
+<!-- HERO SECTION -->
+<section class="pt-20 pb-section-gap px-margin-mobile md:px-margin-desktop overflow-hidden">
+<div class="max-w-[1280px] mx-auto grid md:grid-cols-2 items-center gap-gutter">
+<div>
+<span class="inline-block px-4 py-1.5 bg-secondary-container text-on-secondary-container rounded-full font-label-md text-label-md mb-6">
+                        Extension of Care
+                    </span>
+<h1 class="font-display-lg text-display-lg text-primary mb-6 leading-tight">
+                        Extend your therapeutic impact beyond the session.
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-xl">
+                        Famos is a clinician-informed relationship operating system designed to bridge the gap between weekly sessions and the 167 hours of family life that happen in between.
+                    </p>
+<div class="flex gap-4">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-full font-label-md text-label-md hover:bg-primary-container transition-colors soft-shadow">
+                            Partner with us
+                        </button>
+<button class="border border-primary text-primary px-8 py-4 rounded-full font-label-md text-label-md hover:bg-secondary-container/10 transition-colors">
+                            View Case Studies
+                        </button>
+</div>
+</div>
+<div class="relative">
+<div class="aspect-square rounded-[48px] overflow-hidden bg-surface-container-high border border-outline-variant/30 soft-shadow">
+<img alt="A professional Indian female counselor in a modern, bright office, holding a tablet and smiling warmly." class="w-full h-full object-cover opacity-90 mix-blend-multiply" data-alt="A professional yet warm environment showing a modern therapy office with soft lighting and minimalist decor. A confident female counsellor in business casual attire is smiling thoughtfully while holding a digital tablet. The background features clean lines, a peaceful plant, and a calming teal and white color palette that conveys professional empathy and technological sophistication." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOo93heFzOmGIYcvNW9gWqAi7cgo9-CbFI5v_D2yr6JGa4FzlW33yAYB2m5-PW53041BpWG-yX9Yp87BXlYvr8r4dnK84AFnmzDM-aJqGhleymFwOqqVwHl031UxvdAbjrUG1i5SAAZ4aqE53b63YH0rbe4NYIEdK6b1Lm3kdUF7sH4nk8uh6-kzpr6DqYt_3nYFoUraji8jYR_gw2vUv03W0EVSQYAHZepzJ4A4KxAdWxXdghL6nf4YHhWQC9McYnRlzOy_l1x4U"/>
+</div>
+<!-- Decorative Element -->
+<div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl border border-outline-variant/20 soft-shadow max-w-[240px]">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-tertiary-container" data-icon="clinical_notes">clinical_notes</span>
+<span class="font-label-md text-label-md text-on-surface">Care Continuity</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="w-4/5 h-full bg-primary"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CURRENT GAP SECTION -->
+<section class="py-section-gap bg-surface-container-lowest">
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center max-w-3xl mx-auto mb-20">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">The Limitations of Episodic Care</h2>
+<p class="text-on-surface-variant font-body-lg">Meaningful change happens in the moments between sessions. Traditional models often struggle to capture or influence these critical windows.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Gap Card 1 -->
+<div class="p-10 bg-white border border-outline-variant/30 rounded-[24px] soft-shadow">
+<div class="w-12 h-12 bg-tertiary-fixed text-tertiary flex items-center justify-center rounded-xl mb-6">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">The Recall Barrier</h3>
+<p class="text-on-surface-variant">Families often struggle to recall specific nuances of conflicts or breakthroughs after several days, leading to "diluted" reporting in sessions.</p>
+</div>
+<!-- Gap Card 2 -->
+<div class="p-10 bg-white border border-outline-variant/30 rounded-[24px] soft-shadow">
+<div class="w-12 h-12 bg-secondary-fixed text-secondary flex items-center justify-center rounded-xl mb-6">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Lack of Objective Data</h3>
+<p class="text-on-surface-variant">Therapeutic progress relies heavily on subjective narratives. Without real-time interaction data, identifying systemic family patterns takes longer.</p>
+</div>
+<!-- Gap Card 3 -->
+<div class="p-10 bg-white border border-outline-variant/30 rounded-[24px] soft-shadow">
+<div class="w-12 h-12 bg-primary-fixed text-primary flex items-center justify-center rounded-xl mb-6">
+<span class="material-symbols-outlined" data-icon="timer_off">timer_off</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Implementation Lag</h3>
+<p class="text-on-surface-variant">The "homework" assigned in therapy is often forgotten or misapplied in the heat of a real family moment, slowing down the healing process.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- PLATFORM VALUE SECTION (Bento Grid Style) -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop">
+<div class="max-w-[1280px] mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+<div class="max-w-2xl">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">A Modern Operating System for Healing</h2>
+<p class="text-on-surface-variant">We provide the tools to maintain therapeutic momentum, giving you unprecedented insight into the family ecosystem.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[600px]">
+<!-- Continuity -->
+<div class="md:col-span-8 bg-white border border-outline-variant/20 rounded-[32px] p-10 flex flex-col justify-between soft-shadow overflow-hidden relative group">
+<div class="relative z-10">
+<h4 class="font-headline-md text-headline-md text-primary mb-2">Continuity of Care</h4>
+<p class="text-on-surface-variant max-w-sm mb-6">Famos nudges families toward healthy interaction patterns based on your session goals, turning theory into daily practice.</p>
+<ul class="space-y-3">
+<li class="flex items-center gap-3 text-on-surface-variant"><span class="material-symbols-outlined text-primary scale-75" data-icon="check_circle">check_circle</span> Automated therapeutic nudges</li>
+<li class="flex items-center gap-3 text-on-surface-variant"><span class="material-symbols-outlined text-primary scale-75" data-icon="check_circle">check_circle</span> Shared family goals dashboard</li>
+</ul>
+</div>
+<div class="absolute right-[-10%] bottom-[-10%] w-2/3 h-2/3 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[300px]" data-icon="diversity_3">diversity_3</span>
+</div>
+</div>
+<!-- Data Insights -->
+<div class="md:col-span-4 bg-primary text-on-primary rounded-[32px] p-10 flex flex-col justify-between soft-shadow">
+<div>
+<span class="material-symbols-outlined text-secondary-container mb-6 block" data-icon="analytics" style="font-size: 48px;">analytics</span>
+<h4 class="font-headline-md text-headline-md mb-2">Objective Data</h4>
+<p class="text-on-primary/80">View trends in family mood, communication frequency, and conflict resolution over time to better inform your interventions.</p>
+</div>
+<div class="mt-8 pt-8 border-t border-on-primary/10">
+<div class="text-headline-lg font-bold">14+</div>
+<div class="text-label-md opacity-70">Behavioral Indicators Tracked</div>
+</div>
+</div>
+<!-- Scale -->
+<div class="md:col-span-4 bg-surface-container-low border border-outline-variant/20 rounded-[32px] p-10 flex flex-col justify-between soft-shadow">
+<div>
+<h4 class="font-headline-md text-headline-md text-primary mb-2">Scale Your Practice</h4>
+<p class="text-on-surface-variant">Support more families with less burnout. Automate the routine administrative check-ins and focus on deep clinical work.</p>
+</div>
+<div class="mt-4">
+<div class="flex -space-x-4">
+<div class="w-10 h-10 rounded-full border-2 border-white bg-tertiary-fixed"></div>
+<div class="w-10 h-10 rounded-full border-2 border-white bg-primary-fixed"></div>
+<div class="w-10 h-10 rounded-full border-2 border-white bg-secondary-fixed"></div>
+</div>
+</div>
+</div>
+<!-- Engagement -->
+<div class="md:col-span-8 bg-white border border-outline-variant/20 rounded-[32px] p-10 flex flex-col md:flex-row gap-10 items-center justify-between soft-shadow overflow-hidden">
+<div class="flex-1">
+<h4 class="font-headline-md text-headline-md text-primary mb-2">Deep Engagement</h4>
+<p class="text-on-surface-variant">Gamified family rituals and interactive prompts ensure that even reluctant teens stay connected to the therapeutic process.</p>
+</div>
+<div class="w-full md:w-1/3 aspect-[4/3] bg-background rounded-2xl flex items-center justify-center border border-outline-variant/10">
+<img alt="Mobile app engagement" class="w-full h-full object-cover rounded-2xl opacity-80" data-alt="A close-up shot of a smartphone screen displaying a vibrant, high-end mobile application with a clean teal and white interface. The screen shows a gamified family progress tracker with smooth progress bars and friendly icons. The lighting is bright and crisp, highlighting the premium glass-like textures and sophisticated typography of the UI design, reflecting the Famos aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1INsZSzrcLJ8Rwz9wDrRdwNgALs9egY3rjLKxqQ3CIEUTabRbMU53n-bYV8yXVi4SUQJAMWskTGDXnSlZz8djHzziAS1gC9atSYtsHaF5uKkdHETXo-gUsek6No-VLQe7bp-XwIyQvgTJedvgdQJ3Z3rX6X0S9uc8ghhX_n4qr-Np575WJpEwXn0uCoOhqHnbfTDZg99SfhfpZJlW_cd8frEDA53Yipkg5fGXDxCq4JdGJ7lBC2tKU_LzzL0nxiVnZq3gMvVzh9c"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- IMPACT SECTION -->
+<section class="py-section-gap bg-background border-y border-outline-variant/10">
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop grid md:grid-cols-2 gap-section-gap items-center">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-8">Bridging the Supply-Demand Gap</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6">
+                        The demand for youth and family mental health services is at an all-time high, yet the traditional 1-on-1 model remains fundamentally unscalable. Counsellors are facing unprecedented rates of burnout while families wait months for care.
+                    </p>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                        Famos empowers clinicians to provide high-quality support to more families by automating the 'daily hygiene' of relationship maintenance, allowing professionals to intervene precisely when and where it matters most.
+                    </p>
+</div>
+<div class="bg-primary-container p-12 rounded-[40px] text-on-primary-container relative overflow-hidden">
+<div class="relative z-10">
+<div class="text-[80px] font-bold leading-none mb-4">64%</div>
+<p class="font-headline-md text-headline-md mb-8">Increase in client engagement between sessions when using digital support tools.</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-on-primary-container text-primary-container rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="verified">verified</span>
+</div>
+<span class="font-label-md">Based on internal pilot data &amp; clinical research</span>
+</div>
+</div>
+<!-- Decorative Circle -->
+<div class="absolute -right-20 -bottom-20 w-80 h-80 bg-secondary-container/10 rounded-full blur-3xl"></div>
+</div>
+</div>
+</section>
+<!-- CTA SECTION -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop">
+<div class="max-w-[1280px] mx-auto bg-surface-container-high rounded-[48px] p-12 md:p-24 text-center relative overflow-hidden">
+<div class="relative z-10 max-w-2xl mx-auto">
+<h2 class="font-display-lg text-display-lg text-primary mb-6">Ready to evolve your practice?</h2>
+<p class="text-body-lg text-on-surface-variant mb-12">
+                        Join our exclusive network of forward-thinking counsellors and clinics who are shaping the future of relationship health.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="bg-primary text-on-primary px-10 py-5 rounded-full font-headline-md text-headline-md hover:scale-105 transition-transform shadow-lg">
+                            Partner with us
+                        </button>
+<button class="bg-white text-primary border border-primary/20 px-10 py-5 rounded-full font-headline-md text-headline-md hover:bg-surface-container-lowest transition-colors">
+                            Book a Demo
+                        </button>
+</div>
+</div>
+<!-- Background Accents -->
+<div class="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
+<div class="absolute top-10 left-10 w-40 h-40 bg-primary rounded-full"></div>
+<div class="absolute bottom-10 right-10 w-60 h-60 bg-tertiary rounded-full"></div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant/20">
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-section-gap grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="md:col-span-1">
+<div class="font-headline-md text-headline-md font-bold text-primary mb-6">famos</div>
+<p class="text-on-surface-variant font-body-md max-w-xs">
+                    Relationship Operating System for modern families. Building stronger foundations through technology and empathy.
+                </p>
+</div>
+<div>
+<h5 class="font-label-md text-label-md text-primary mb-6">Product</h5>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Why famos</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">For Parents</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">For Teens</a></li>
+<li><a class="text-primary font-semibold" href="#">For Counsellors</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-md text-label-md text-primary mb-6">Company</h5>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">About Us</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Schools</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-md text-label-md text-primary mb-6">Stay Informed</h5>
+<p class="text-on-surface-variant font-body-md mb-4">Get the latest insights on family dynamics.</p>
+<div class="flex gap-2">
+<input class="bg-surface-container border-none rounded-lg px-4 py-2 w-full focus:ring-2 focus:ring-primary/20" placeholder="Email address" type="email"/>
+<button class="bg-primary text-on-primary p-2 rounded-lg"><span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span></button>
+</div>
+</div>
+<div class="md:col-span-4 mt-16 pt-8 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="text-on-surface-variant font-label-md text-label-md">
+                    © 2024 famos. All rights reserved. Relationship Operating System for modern families.
+                </div>
+<div class="flex gap-6">
+<a class="text-on-surface-variant hover:text-primary" href="#"><span class="material-symbols-outlined" data-icon="share">share</span></a>
+<a class="text-on-surface-variant hover:text-primary" href="#"><span class="material-symbols-outlined" data-icon="language">language</span></a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

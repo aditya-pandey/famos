@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>famos | Relationship Operating System for Modern Families</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#f7faf8",
+                        "surface-container-low": "#f1f4f3",
+                        "tertiary-fixed": "#ffdbce",
+                        "surface-container-highest": "#e0e3e1",
+                        "inverse-on-surface": "#eef1f0",
+                        "on-secondary-fixed-variant": "#005047",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#4ddcc6",
+                        "on-tertiary-container": "#ffe5db",
+                        "surface-container": "#ebefed",
+                        "on-tertiary-fixed": "#370e00",
+                        "primary": "#005c55",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#181c1c",
+                        "primary-fixed": "#9cf2e8",
+                        "on-primary-fixed": "#00201d",
+                        "surface": "#f7faf8",
+                        "outline-variant": "#bdc9c6",
+                        "secondary-container": "#6ef9e2",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#f7faf8",
+                        "inverse-primary": "#80d5cb",
+                        "on-primary-fixed-variant": "#00504a",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#7f4025",
+                        "secondary-fixed": "#6ef9e2",
+                        "surface-variant": "#e0e3e1",
+                        "on-secondary-container": "#007164",
+                        "error": "#ba1a1a",
+                        "secondary": "#006b5e",
+                        "surface-tint": "#006a63",
+                        "surface-container-high": "#e5e9e7",
+                        "primary-fixed-dim": "#80d5cb",
+                        "tertiary-fixed-dim": "#ffb598",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error": "#ffffff",
+                        "primary-container": "#0f766e",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#d7dbd9",
+                        "inverse-surface": "#2d3130",
+                        "on-tertiary-fixed-variant": "#72361b",
+                        "on-background": "#181c1c",
+                        "on-primary-container": "#a3faef",
+                        "outline": "#6e7977",
+                        "on-surface-variant": "#3e4947",
+                        "tertiary-container": "#9c573a",
+                        "on-secondary-fixed": "#00201b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "120px",
+                        "container-max-width": "1280px",
+                        "unit": "8px",
+                        "gutter": "24px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Lexend"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Lexend"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Lexend"],
+                        "display-lg": ["Lexend"],
+                        "caption": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(15, 118, 110, 0.05);
+        }
+        .soft-shadow {
+            box-shadow: 0 10px 30px -10px rgba(0, 92, 85, 0.04);
+        }
+        .active-dot::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 4px;
+            background-color: #ffb598;
+            border-radius: 9999px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md">
+<!-- TopNavBar -->
+<nav class="sticky top-0 w-full z-50 bg-surface/70 dark:bg-inverse-surface/70 backdrop-blur-md border-b border-primary/5 shadow-sm">
+<div class="flex justify-between items-center max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop h-20">
+<a class="font-headline-lg text-headline-lg font-bold text-primary dark:text-primary-fixed tracking-tight" href="#">famos</a>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label-md text-label-md text-primary dark:text-primary-fixed font-bold relative after:content-[''] after:absolute after:-bottom-2 after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-1 after:bg-tertiary-container after:rounded-full transition-all duration-300" href="#">Why famos</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all duration-300" href="#">For Parents</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all duration-300" href="#">For Teens</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all duration-300" href="#">For Counsellors</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all duration-300" href="#">About Us</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all duration-300" href="#">Schools</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-full font-label-md text-label-md hover:scale-105 active:scale-95 transition-transform duration-200">
+                Get Early Access
+            </button>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-16 md:py-24 grid grid-cols-1 md:grid-cols-2 gap-gutter items-center">
+<div class="flex flex-col gap-8">
+<h1 class="font-display-lg text-display-lg text-primary leading-tight">
+                Parenting never had a playbook. So, we thought <span class="text-tertiary">let’s build one!!</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+                FamOS is the world's first Relationship Operating System designed to bridge the digital gap between parents and children through proactive guidance, shared activities, and emotional intelligence.
+            </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary-container text-on-primary-container px-8 py-4 rounded-full font-label-md text-label-md hover:shadow-lg transition-all duration-300">
+                    Get Early Access
+                </button>
+<button class="border border-primary text-primary px-8 py-4 rounded-full font-label-md text-label-md hover:bg-primary/5 transition-all duration-300">
+                    Book a Demo
+                </button>
+</div>
+</div>
+<div class="relative">
+<div class="absolute -z-10 inset-0 bg-secondary-container/20 blur-[100px] rounded-full"></div>
+<img alt="A happy Indian family (father, mother, and two children) sitting together on a comfortable sofa in a modern, sunlit living room." class="w-full h-auto rounded-[32px] shadow-2xl object-cover aspect-[4/3]" data-alt="A happy Indian family (father, mother, and two children) sitting together on a comfortable sofa in a modern, sunlit living room. They are engaged in a warm conversation, laughing and showing deep connection. Professional photography, soft natural lighting, clean and premium aesthetic, high resolution." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrUX_QogqYNGGVFYDO_hnOGXRsLECbD9gk3iVck47EGMMsOuD4jH7viXolGb9OkVnt_xOfShc6TnnzUVsDTYBLSpcI-WH40nPph9e6G1Yx54KjpI8YlJMu1c0e1VqlPJXC5Qo4niOAX_dqntdrbayV4_hqsTHvOuG2US0fq66BxwcPouwXdZQTR24EgNLMlxGjReOhnVwkMNvb2cnEFrb6N8mjV9osx1Lv4qT8f-dMdIEKqY2RowPRJmgpWb6uEV8bYOj-YigmTiw"/>
+</div>
+</section>
+<!-- THE SHIFT Section -->
+<section class="bg-surface-container-lowest py-section-gap">
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop text-center max-w-3xl">
+<span class="text-secondary font-label-md text-label-md tracking-widest uppercase mb-4 block">The Shift</span>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-6">Something fundamental has changed in families today.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                The digital world has moved faster than parenting styles. While we are more connected than ever by devices, the depth of our conversations is shrinking. We are navigating a complex landscape of digital isolation that requires a new kind of operating system.
+            </p>
+</div>
+</section>
+<!-- DATA POINTS Section -->
+<section class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-section-gap">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="p-8 rounded-[24px] bg-white border border-outline-variant/20 soft-shadow">
+<div class="text-primary font-display-lg text-display-lg mb-2">1 in 4</div>
+<p class="text-on-surface-variant font-body-md text-body-md">Indian school-age children shows signs of depression and isolation.</p>
+</div>
+<div class="p-8 rounded-[24px] bg-white border border-outline-variant/20 soft-shadow lg:mt-8">
+<div class="text-tertiary font-display-lg text-display-lg mb-2">50%+</div>
+<p class="text-on-surface-variant font-body-md text-body-md">Of urban teens report chronic anxiety linked to digital performance.</p>
+</div>
+<div class="p-8 rounded-[24px] bg-white border border-outline-variant/20 soft-shadow">
+<div class="text-secondary font-display-lg text-display-lg mb-2">12min</div>
+<p class="text-on-surface-variant font-body-md text-body-md">The average daily quality time parent and teen spend talking deeply.</p>
+</div>
+<div class="p-8 rounded-[24px] bg-white border border-outline-variant/20 soft-shadow lg:mt-8">
+<div class="text-primary font-display-lg text-display-lg mb-2">85%</div>
+<p class="text-on-surface-variant font-body-md text-body-md">Of parents feel they lack the tools to talk about mental health safely.</p>
+</div>
+</div>
+</section>
+<!-- WHAT'S BROKEN Section -->
+<section class="bg-surface-container py-section-gap">
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-12 text-center">Current solutions are incomplete fragments.</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="p-8 rounded-[24px] bg-surface-container-lowest flex flex-col gap-4 border border-outline-variant/10">
+<span class="material-symbols-outlined text-tertiary text-4xl">psychology_alt</span>
+<h3 class="font-headline-md text-headline-md text-primary">Therapy</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Reactive and clinical. It handles crises but doesn't build daily foundations.</p>
+</div>
+<div class="p-8 rounded-[24px] bg-surface-container-lowest flex flex-col gap-4 border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary text-4xl">video_library</span>
+<h3 class="font-headline-md text-headline-md text-primary">Content</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Passive advice from blogs that is hard to apply in the heat of the moment.</p>
+</div>
+<div class="p-8 rounded-[24px] bg-surface-container-lowest flex flex-col gap-4 border border-outline-variant/10">
+<span class="material-symbols-outlined text-secondary text-4xl">lock_open</span>
+<h3 class="font-headline-md text-headline-md text-primary">Control Apps</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Built on surveillance and mistrust rather than connection and growth.</p>
+</div>
+<div class="p-8 rounded-[24px] bg-surface-container-lowest flex flex-col gap-4 border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary-container text-4xl">workspace_premium</span>
+<h3 class="font-headline-md text-headline-md text-primary">Reward Tools</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Transactional "chores for money" apps that miss the emotional depth.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- WHAT IS FAMOS Section -->
+<section class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-section-gap grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+<div class="relative order-2 md:order-1">
+<div class="absolute inset-0 bg-primary-fixed/20 -rotate-3 rounded-[32px] -z-10"></div>
+<img alt="Parent Child Connection" class="w-full h-auto rounded-[32px] object-cover" data-alt="A warm and candid photograph of a father and teenage daughter sitting comfortably on a sofa, both looking at a tablet screen together and laughing. The lighting is soft morning sunlight filtering through a window, creating a serene and connected atmosphere. The scene captures a genuine moment of shared joy and digital bonding, styled with a high-end, premium lifestyle aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVzGa4Z6jpOWRbcux-FmHzCazx4j8abJj9PJM96fwK4VUVn7PqI4Efoz11Z77E6Tdc4r4Inv71qrO8CsCHFTnyvafhHElUUja8Pjh_Aa8XRUwUBj_rBR-mtlQCQNUvVFPoT8qY3tJA533431WLnchxs7h2nAkN6xhjB7h77Sf88n4krn8byPJag7fv1AXkQNuOeB2Meroakn0e1DTKyELQ4HHLqLpgD4kqnXUKsNT1oiEYtXko1v6LoxP0CyAg6xoK848vKczc02M"/>
+</div>
+<div class="flex flex-col gap-6 order-1 md:order-2">
+<h2 class="font-headline-lg text-headline-lg text-primary">A holistic Relationship OS for the modern home.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                FamOS isn't just another app; it's the layer that sits between parent and child to facilitate meaningful interaction. It turns the tension of the digital age into the fuel for deeper relationships.
+            </p>
+<ul class="space-y-4 mt-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary font-bold">check_circle</span>
+<p class="font-body-md text-body-md"><span class="font-bold text-primary">Integrated:</span> Combines monitoring with mentorship.</p>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary font-bold">check_circle</span>
+<p class="font-body-md text-body-md"><span class="font-bold text-primary">Proactive:</span> Predicts friction points before they become conflicts.</p>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary font-bold">check_circle</span>
+<p class="font-body-md text-body-md"><span class="font-bold text-primary">Value-Driven:</span> Focuses on character growth over chore completion.</p>
+</li>
+</ul>
+</div>
+</section>
+<!-- HOW IT WORKS Section -->
+<section class="bg-surface-container-low py-section-gap">
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-primary">How famos works.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-4">Three layers of intelligence designed for family harmony.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<div class="bg-white p-10 rounded-[32px] border border-outline-variant/10 hover:border-primary/20 transition-all">
+<div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-8">
+<span class="material-symbols-outlined text-4xl" data-weight="fill">shield_person</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Parent Layer</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Receive real-time conversational nudges and AI-driven guidance tailored to your child's current development phase.</p>
+<ul class="space-y-2 text-primary font-label-md text-label-md">
+<li class="flex items-center gap-2">• Active Listening Prompts</li>
+<li class="flex items-center gap-2">• Crisis Management Support</li>
+<li class="flex items-center gap-2">• Relationship Health Scores</li>
+</ul>
+</div>
+<div class="bg-white p-10 rounded-[32px] border border-outline-variant/10 hover:border-secondary/20 transition-all">
+<div class="w-16 h-16 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary mb-8">
+<span class="material-symbols-outlined text-4xl" data-weight="fill">smart_toy</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Child Layer</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Gamified engagement that rewards positive behavior, curiosity, and emotional openness through a safe interface.</p>
+<ul class="space-y-2 text-secondary font-label-md text-label-md">
+<li class="flex items-center gap-2">• Quest-based Learning</li>
+<li class="flex items-center gap-2">• Mood Journaling</li>
+<li class="flex items-center gap-2">• Skill Achievement Badges</li>
+</ul>
+</div>
+<div class="bg-white p-10 rounded-[32px] border border-outline-variant/10 hover:border-tertiary/20 transition-all">
+<div class="w-16 h-16 rounded-2xl bg-tertiary/10 flex items-center justify-center text-tertiary mb-8">
+<span class="material-symbols-outlined text-4xl" data-weight="fill">diversity_3</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Family Layer</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Shared experiences that bring both layers together in the physical world through activities and shared goals.</p>
+<ul class="space-y-2 text-tertiary font-label-md text-label-md">
+<li class="flex items-center gap-2">• Weekly Challenges</li>
+<li class="flex items-center gap-2">• Shared Reward Vaults</li>
+<li class="flex items-center gap-2">• Dinner Table Conversions</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- DAILY LOOP Section -->
+<section class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-section-gap overflow-hidden">
+<h2 class="font-headline-lg text-headline-lg text-primary text-center mb-16">The Daily Loop of Connection.</h2>
+<div class="relative flex flex-col md:flex-row items-center justify-between gap-8 py-10">
+<!-- Background Line -->
+<div class="absolute top-1/2 left-0 w-full h-[2px] bg-outline-variant/20 hidden md:block -translate-y-1/2 -z-10"></div>
+<div class="flex flex-col items-center text-center gap-4 group">
+<div class="w-16 h-16 rounded-full bg-white border-4 border-primary/20 flex items-center justify-center z-10 transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-primary">person_check</span>
+</div>
+<div class="bg-white px-4 py-2 rounded-xl shadow-sm border border-outline-variant/10">
+<p class="font-label-md text-label-md text-primary">Parent Guidance</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant md:hidden">arrow_downward</span>
+<div class="flex flex-col items-center text-center gap-4 group">
+<div class="w-16 h-16 rounded-full bg-white border-4 border-secondary/20 flex items-center justify-center z-10 transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-secondary">child_care</span>
+</div>
+<div class="bg-white px-4 py-2 rounded-xl shadow-sm border border-outline-variant/10">
+<p class="font-label-md text-label-md text-secondary">Child Engagement</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant md:hidden">arrow_downward</span>
+<div class="flex flex-col items-center text-center gap-4 group">
+<div class="w-16 h-16 rounded-full bg-white border-4 border-tertiary/20 flex items-center justify-center z-10 transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-tertiary">celebration</span>
+</div>
+<div class="bg-white px-4 py-2 rounded-xl shadow-sm border border-outline-variant/10">
+<p class="font-label-md text-label-md text-tertiary">Activity</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant md:hidden">arrow_downward</span>
+<div class="flex flex-col items-center text-center gap-4 group">
+<div class="w-16 h-16 rounded-full bg-white border-4 border-primary-container/20 flex items-center justify-center z-10 transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-primary-container">redeem</span>
+</div>
+<div class="bg-white px-4 py-2 rounded-xl shadow-sm border border-outline-variant/10">
+<p class="font-label-md text-label-md text-primary-container">Reward</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant md:hidden">arrow_downward</span>
+<div class="flex flex-col items-center text-center gap-4 group">
+<div class="w-16 h-16 rounded-full bg-white border-4 border-primary/20 flex items-center justify-center z-10 transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined text-primary">insights</span>
+</div>
+<div class="bg-white px-4 py-2 rounded-xl shadow-sm border border-outline-variant/10">
+<p class="font-label-md text-label-md text-primary">Insight</p>
+</div>
+</div>
+</div>
+</section>
+<!-- IMPACT Section -->
+<section class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-section-gap grid grid-cols-1 md:grid-cols-2 gap-gutter items-center">
+<div class="flex flex-col gap-10">
+<h2 class="font-headline-lg text-headline-lg text-primary">Measurable outcomes for your family.</h2>
+<div class="space-y-8">
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container">trending_up</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-primary text-lg mb-2">Improved Communication</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">40% increase in deep conversations reported by pilot families within 3 months.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container">verified_user</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-primary text-lg mb-2">Safe Digital Environment</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Built-in safeguards that teach responsible digital citizenship instead of just blocking access.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container">mood</span>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-primary text-lg mb-2">Reduced Anxiety</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Proactive tools help identify and mitigate teen stress factors before they escalate.</p>
+</div>
+</div>
+</div>
+</div>
+<div>
+<img alt="A warm, candid photo of an Indian father and daughter sitting by a window, reading a book together." class="w-full h-[600px] rounded-[48px] object-cover shadow-2xl" data-alt="A warm, candid photo of an Indian father and daughter sitting by a window, reading a book together. The atmosphere is peaceful and intimate. High-quality photography, soft morning light, modern home interior." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDH2GIiddpwaKQN-qOQaHreL6ViD_vmNbXZgGrmJiroDLkOrug6NLzOwURuS6yPAhduOyXzloX-9AqZq8znafNShWTaHQ2o_1I4Uv3jipR5IX7cuH2GvEeEExoJDpGxtxUKtxsz9DJkViQrnct7SQ1d7PBqXRpc3fAe_XuB8hAex0mbQBDSSVwuzf039N1xKwidhWZ7-lAf3wNUZvDz_L5euF40cnTFqtvi27zxBbM-UCslZNz36TSYwXDT7R9Mwv3grcppx_tZPm8"/>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop pb-24">
+<div class="bg-primary px-10 py-16 md:p-20 rounded-[48px] text-center relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-secondary/20 blur-[80px] rounded-full -mr-32 -mt-32"></div>
+<div class="absolute bottom-0 left-0 w-64 h-64 bg-tertiary/20 blur-[80px] rounded-full -ml-32 -mb-32"></div>
+<div class="relative z-10">
+<h2 class="font-display-lg text-display-lg text-white mb-6">Start building stronger family connections today.</h2>
+<p class="font-body-lg text-body-lg text-on-primary-container max-w-2xl mx-auto mb-10 opacity-90">
+                    Join the waitlist for early access to the famos beta and be the first to transform your home into a high-performance relationship ecosystem.
+                </p>
+<div class="flex flex-wrap justify-center gap-4">
+<button class="bg-white text-primary px-10 py-4 rounded-full font-label-md text-label-md hover:bg-surface-bright transition-all duration-300">
+                        Get Early Access
+                    </button>
+<button class="border border-white/30 text-white px-10 py-4 rounded-full font-label-md text-label-md hover:bg-white/10 transition-all duration-300">
+                        Request a Demo
+                    </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-inverse-surface border-t border-outline-variant/20">
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-section-gap grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="col-span-1 md:col-span-1">
+<a class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed mb-6 block" href="#">famos</a>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs">
+                    Relationship Operating System for modern families. Building deep connections in a digital world.
+                </p>
+</div>
+<div>
+<h5 class="font-label-md text-label-md text-primary mb-6">Product</h5>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors" href="#">Why famos</a></li>
+<li><a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors" href="#">For Parents</a></li>
+<li><a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors" href="#">For Teens</a></li>
+<li><a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors" href="#">Schools</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-md text-label-md text-primary mb-6">Company</h5>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors" href="#">About Us</a></li>
+<li><a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors" href="#">For Counsellors</a></li>
+<li><a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+<li><a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-md text-label-md text-primary mb-6">Newsletter</h5>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Get parenting insights delivered to your inbox.</p>
+<div class="flex gap-2">
+<input class="bg-background border border-outline-variant/30 rounded-full px-4 py-2 w-full focus:ring-2 focus:ring-primary focus:border-transparent outline-none" placeholder="Email address" type="email"/>
+<button class="bg-primary text-on-primary w-10 h-10 flex-shrink-0 rounded-full flex items-center justify-center hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-8 border-t border-outline-variant/10 text-center">
+<p class="text-on-surface-variant font-body-md text-body-md">© 2024 famos. All rights reserved. Relationship Operating System for modern families.</p>
+</div>
+</footer>
+</body></html>

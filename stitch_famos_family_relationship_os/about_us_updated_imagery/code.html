@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About Us | famos - Relationship Operating System</title>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#f7faf8",
+                        "surface-container-low": "#f1f4f3",
+                        "tertiary-fixed": "#ffdbce",
+                        "surface-container-highest": "#e0e3e1",
+                        "inverse-on-surface": "#eef1f0",
+                        "on-secondary-fixed-variant": "#005047",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#4ddcc6",
+                        "on-tertiary-container": "#ffe5db",
+                        "surface-container": "#ebefed",
+                        "on-tertiary-fixed": "#370e00",
+                        "primary": "#005c55",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#181c1c",
+                        "primary-fixed": "#9cf2e8",
+                        "on-primary-fixed": "#00201d",
+                        "surface": "#f7faf8",
+                        "outline-variant": "#bdc9c6",
+                        "secondary-container": "#6ef9e2",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#f7faf8",
+                        "inverse-primary": "#80d5cb",
+                        "on-primary-fixed-variant": "#00504a",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#7f4025",
+                        "secondary-fixed": "#6ef9e2",
+                        "surface-variant": "#e0e3e1",
+                        "on-secondary-container": "#007164",
+                        "error": "#ba1a1a",
+                        "secondary": "#006b5e",
+                        "surface-tint": "#006a63",
+                        "surface-container-high": "#e5e9e7",
+                        "primary-fixed-dim": "#80d5cb",
+                        "tertiary-fixed-dim": "#ffb598",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error": "#ffffff",
+                        "primary-container": "#0f766e",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#d7dbd9",
+                        "inverse-surface": "#2d3130",
+                        "on-tertiary-fixed-variant": "#72361b",
+                        "on-background": "#181c1c",
+                        "on-primary-container": "#a3faef",
+                        "outline": "#6e7977",
+                        "on-surface-variant": "#3e4947",
+                        "tertiary-container": "#9c573a",
+                        "on-secondary-fixed": "#00201b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "120px",
+                        "container-max-width": "1280px",
+                        "unit": "8px",
+                        "gutter": "24px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Lexend"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Lexend"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Lexend"],
+                        "display-lg": ["Lexend"],
+                        "caption": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .story-text-container {
+            max-width: 680px;
+        }
+        .soft-elevation {
+            box-shadow: 0 10px 30px -5px rgba(15, 118, 110, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<nav class="sticky top-0 w-full z-50 bg-surface/70 backdrop-blur-md border-b border-primary/5 shadow-sm">
+<div class="flex justify-between items-center max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop h-20">
+<div class="flex items-center gap-8">
+<span class="font-headline-lg text-headline-lg font-bold text-primary tracking-tight">famos</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-all duration-300" href="#">Why famos</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-all duration-300" href="#">For Parents</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-all duration-300" href="#">For Teens</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-all duration-300" href="#">For Counsellors</a>
+<a class="text-primary font-bold relative after:content-[''] after:absolute after:-bottom-2 after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-1 after:bg-tertiary-container after:rounded-full" href="#">About Us</a>
+<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-all duration-300" href="#">Schools</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-full font-label-md text-label-md hover:scale-105 active:scale-95 transition-transform duration-200 shadow-sm">
+                    Get Early Access
+                </button>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<main>
+<!-- HERO: Founder Story Intro -->
+<section class="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter items-center">
+<div>
+<span class="inline-block px-4 py-1.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-md text-label-md mb-6">Our Origins</span>
+<h1 class="font-display-lg text-display-lg text-primary mb-8 leading-tight">It started with a simple question: Are we really <span class="text-tertiary">connected?</span></h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mb-10">
+                            famos wasn't born in a boardroom. It was born at a dinner table where three generations sat together, yet felt worlds apart. We realized that while technology connects the world, it often creates invisible walls within our own homes.
+                        </p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary-fixed">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a friendly-looking man in his 40s, representing the founder. He is smiling warmly in a bright, modern office setting with soft, natural light and a clean, minimalist background. The photography style is high-end, crisp, and emotionally approachable, mirroring the brand's trustworthy and sophisticated family-centric aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_QDSMzSsKKlk-7WoJWssQWCjKSsNOZzIQdRQkm_MlTg7ZRD-meKRtDaldrfPbhVrlLMFBO67yJmkUI7v9AkgYnM2JAW64GeXfI2Dkat-cpF52Z6l-ZPML1vJ8yq5woWAl8yB2hsEYRIzrrxnWuNzLM43W38qqSMq0kZJuJkYS9mZPTZRo1yTNxyFU7R36hzbT2281RdgDFyFZ1pLS1C70SZ_xa3pa8Tk_GVjQbvMu-t9GxDKyRKrEBanB5xI0NBI6TuGmVk0_qms"/>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Julian Aris</p>
+<p class="font-caption text-caption text-on-surface-variant">Founder &amp; Father of Three</p>
+</div>
+</div>
+</div>
+<div class="relative">
+<div class="aspect-square rounded-[40px] overflow-hidden soft-elevation relative z-10">
+<img class="w-full h-full object-cover" data-alt="An Indian mother and father sitting at a dinner table with their young son, sharing a meal and talking happily. The setting is a modern Indian home. Warm, inviting lighting, professional lifestyle photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPTY9ebhCyeaJtN03UUZ2iFkqldke_qO2XockIpNz9pRqBGgcL7Mn1qt-o_j-rh2VaMFcqbmrsf3JxplQcOYDyCTFx_OTDiUP9kR39MMhh62vJ2FihZtEruoL6kXMAxBRm0CpVptuINqCI9UUXKYrDpvAFc3frlmLk8ELuEg91ZV-whOwxXETUbeZu5RfTVjEDLZ8qKSsymgJriFjZ-Iw_1FOWk17uQzmhA-O_y4rzWfvyEC-6wfnUQV4qHyPH9SeLZ5fsxKyrzqk"/>
+</div>
+<!-- Decorative Glass Element -->
+<div class="absolute -bottom-8 -right-8 w-48 h-48 bg-secondary-container/20 backdrop-blur-xl border border-white/30 rounded-[32px] hidden md:block z-20"></div>
+<div class="absolute -top-6 -left-6 w-32 h-32 bg-tertiary-fixed/30 backdrop-blur-lg border border-white/30 rounded-full hidden md:block z-0"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- STORY: Long-form narrative -->
+<section class="py-section-gap bg-surface-container-lowest">
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="story-text-container mx-auto">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-12">Parenting in the Age of Noise</h2>
+<div class="space-y-8 font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+<p>
+                            Today’s families are navigating an unprecedented landscape. Between the constant pull of social media, the rising pressures of academic performance, and the sheer speed of digital life, the space for quiet, meaningful connection is shrinking.
+                        </p>
+<p>
+                            We saw parents struggling to find the "manual" for modern relating. We saw teens who wanted to share their worlds but didn't know how to bridge the gap. The tools we use for work—Slack, Notion, Trello—are designed for high-performance productivity. Why weren't there tools designed for high-performance <span class="italic text-primary font-semibold">empathy</span>?
+                        </p>
+<div class="py-8">
+<blockquote class="border-l-4 border-secondary-fixed pl-8 py-2">
+<p class="font-headline-md text-headline-md text-on-surface italic">
+                                    "We don't need more tracking; we need more understanding. We don't need more control; we need more agency."
+                                </p>
+</blockquote>
+</div>
+<p>
+                            famos was built on the belief that a family is an ecosystem, not a hierarchy. By providing a structured, gentle environment for communication, task-sharing, and emotional check-ins, we can lower the cognitive load of "running a family" and make room for the joy of "being a family."
+                        </p>
+<p>
+                            Our platform uses behavioral science and emotional intelligence to nudge families toward better habits. It's not about monitoring; it's about making the invisible emotional labor of home life visible, valued, and shared.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- VISION: Bold Statement -->
+<section class="py-section-gap bg-primary text-on-primary relative overflow-hidden">
+<!-- Background Texture -->
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-secondary-fixed via-transparent to-transparent opacity-20"></div>
+</div>
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop relative z-10 text-center">
+<div class="max-w-4xl mx-auto">
+<span class="material-symbols-outlined text-secondary-fixed text-5xl mb-8" data-icon="auto_awesome">auto_awesome</span>
+<h2 class="font-display-lg text-display-lg mb-12 leading-tight">
+                        Our vision is to build the <span class="text-secondary-fixed">world’s first relationship operating system</span>—turning digital friction into familial glue.
+                    </h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-left mt-16">
+<div class="space-y-4">
+<h3 class="font-headline-md text-headline-md text-secondary-container">Trust by Design</h3>
+<p class="font-body-md text-body-md opacity-80">Privacy isn't a feature; it's our foundation. Your family's data stays within your family circle, always.</p>
+</div>
+<div class="space-y-4">
+<h3 class="font-headline-md text-headline-md text-secondary-container">Emotionally Aware</h3>
+<p class="font-body-md text-body-md opacity-80">Our tools are built with psychologists to ensure they foster real growth and mental well-being.</p>
+</div>
+<div class="space-y-4">
+<h3 class="font-headline-md text-headline-md text-secondary-container">Radically Simple</h3>
+<p class="font-body-md text-body-md opacity-80">Technology should disappear into the background. We design for focus, not distraction.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CLOSING: Emotional line -->
+<section class="py-section-gap">
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop text-center">
+<div class="max-w-2xl mx-auto space-y-8">
+<h3 class="font-headline-lg text-headline-lg text-primary">Because at the end of the day, all we have is each other.</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                        Join the hundreds of families who are reclaiming their connection. We're building famos for our families, and for yours.
+                    </p>
+<div class="pt-8">
+<button class="bg-primary-container text-on-primary-container px-10 py-4 rounded-full font-headline-md text-headline-md hover:scale-105 active:scale-95 transition-transform duration-200 soft-elevation">
+                            Start Your Journey
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant/20">
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-section-gap grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="col-span-1 md:col-span-1">
+<span class="font-headline-md text-headline-md font-bold text-primary mb-4 block">famos</span>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs">
+                    Relationship Operating System for modern families.
+                </p>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-primary mb-6 uppercase tracking-wider">Product</h4>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Why famos</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">For Parents</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">For Teens</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Schools</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-primary mb-6 uppercase tracking-wider">Company</h4>
+<ul class="space-y-4">
+<li><a class="text-primary font-semibold" href="#">About Us</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">For Counsellors</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-primary mb-6 uppercase tracking-wider">Connect</h4>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined">share</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-primary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined">mail</span>
+</a>
+</div>
+</div>
+</div>
+<div class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-8 border-t border-outline-variant/10 text-center md:text-left">
+<p class="font-label-md text-label-md text-on-surface-variant opacity-60">© 2024 famos. All rights reserved. Relationship Operating System for modern families.</p>
+</div>
+</footer>
+</body></html>
