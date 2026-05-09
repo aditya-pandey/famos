@@ -26,6 +26,8 @@ export default function ContactForm() {
       return;
     }
     try {
+
+  // Save to Firebase
   await addDoc(collection(db, "contacts"), {
     name: form.name,
     email: form.email,
@@ -33,13 +35,23 @@ export default function ContactForm() {
     createdAt: new Date(),
   });
 
+  // Send to Google Sheets
+  await fetch("https://script.google.com/macros/s/AKfycby1TiXSLE2NUD_N8epXQuvXS_J2FJ4XgREfdtUv6GwHAkIpMLgv-OqxK-hgHGpNpDDC/exec", {
+    method: "POST",
+    body: JSON.stringify({
+      name: form.name,
+      email: form.email,
+      message: form.message,
+    }),
+  });
+
   setSubmitted(true);
   setForm(initial);
 
-  } catch (err) {
-    console.error(err);
-    setError("Something went wrong. Please try again.");
-  }
+} catch (err) {
+  console.error(err);
+  setError("Something went wrong. Please try again.");
+}
   }
 
   return (
