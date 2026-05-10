@@ -145,7 +145,7 @@
 // }
 
 
-import { useContext, lazy, Suspense } from 'react';
+import { useContext, lazy, Suspense, useEffect } from 'react';
 import { ContentContext } from '../context/ContentContext.jsx';
 import { HeartHandshake, ShieldCheck, Sparkles } from 'lucide-react';
 import Button from '../components/Button.jsx';
@@ -166,6 +166,12 @@ const icons = [HeartHandshake, Sparkles, ShieldCheck];
 export default function Home() {
   // This pulls your live text data from the Google Sheet
   const { stats, pillars } = useContext(ContentContext);
+
+  useEffect(() => {
+    document.title = "famos | Relationship OS for modern families";
+    const description = document.querySelector('meta[name="description"]');
+    description?.setAttribute('content', "Emotionally intelligent tools that help families replace digital distance with trust, rhythm, and everyday connection.");
+  }, []);
 
   return (
     <>
