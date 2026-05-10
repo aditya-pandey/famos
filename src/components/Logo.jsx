@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import famosLogo from '../assets/famos-logo.png';
+import famosLogo from '../assets/famos-logo.webp';
 
 export default function Logo({ className = '', markClassName = '', onClick }) {
   return (
@@ -13,6 +13,9 @@ export default function Logo({ className = '', markClassName = '', onClick }) {
         className={`h-10 w-32 rounded-2xl object-cover object-center shadow-sm sm:h-11 sm:w-36 ${markClassName}`}
         src={famosLogo}
         alt="famos"
+        width="144"
+        height="44"
+        fetchpriority="high"
       />
     </Link>
   );

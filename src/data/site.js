@@ -1,9 +1,9 @@
-import familyImage from '../../stitch_famos_family_relationship_os/a_happy_indian_family_father_mother_and_two_children_sitting_together_on_a/screen.png';
-import parentImage from '../../stitch_famos_family_relationship_os/an_indian_mother_and_father_sitting_at_a_dinner_table_with_their_young_son/screen.png';
-import teenImage from '../../stitch_famos_family_relationship_os/an_indian_teenage_girl_smiling_while_looking_at_her_smartphone._she_looks/screen.png';
-import counsellorImage from '../../stitch_famos_family_relationship_os/a_professional_indian_female_counselor_in_a_modern_bright_office_holding_a/screen.png';
-import schoolImage from '../../stitch_famos_family_relationship_os/an_indian_male_teacher_and_an_indian_female_student_teenager_sitting_at_a_desk/screen.png';
-import connectionImage from '../assets/why-us-hero.png';
+import familyImage from '../../stitch_famos_family_relationship_os/a_happy_indian_family_father_mother_and_two_children_sitting_together_on_a/screen.webp';
+import parentImage from '../../stitch_famos_family_relationship_os/an_indian_mother_and_father_sitting_at_a_dinner_table_with_their_young_son/screen.webp';
+import teenImage from '../../stitch_famos_family_relationship_os/an_indian_teenage_girl_smiling_while_looking_at_her_smartphone._she_looks/screen.webp';
+import counsellorImage from '../../stitch_famos_family_relationship_os/a_professional_indian_female_counselor_in_a_modern_bright_office_holding_a/screen.webp';
+import schoolImage from '../../stitch_famos_family_relationship_os/an_indian_male_teacher_and_an_indian_female_student_teenager_sitting_at_a_desk/screen.webp';
+import connectionImage from '../assets/why-us-hero.webp';
 
 export const images = {
   family: familyImage,

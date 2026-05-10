@@ -30,7 +30,14 @@ export default function Page({ page }) {
             </div>
           </Reveal>
           <Reveal delay={140}>
-            <img className="premium-image aspect-[4/3] w-full rounded-[1.75rem] object-cover shadow-soft sm:rounded-[2rem]" src={page.image} alt={page.alt} />
+            <img 
+              className="premium-image aspect-[4/3] w-full rounded-[1.75rem] object-cover shadow-soft sm:rounded-[2rem]" 
+              src={page.image} 
+              alt={page.alt} 
+              width="800"
+              height="600"
+              fetchpriority="high"
+            />
           </Reveal>
         </div>
       </section>

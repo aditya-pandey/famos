@@ -200,6 +200,9 @@ export default function Home() {
               className="premium-image aspect-[4/3] w-full rounded-[1.75rem] object-cover shadow-soft sm:rounded-[2rem]"
               src={images.family}
               alt="A smiling family sitting together in a sunlit living room."
+              width="800"
+              height="600"
+              fetchpriority="high"
             />
             <div className="motion-card absolute bottom-3 left-3 right-3 rounded-card border border-white/60 bg-white/90 p-4 shadow-soft backdrop-blur sm:bottom-4 sm:left-auto sm:right-4 sm:w-72">
               <p className="text-sm font-extrabold text-teal-900">Today’s rhythm</p>
@@ -268,6 +271,9 @@ export default function Home() {
             className="aspect-[4/3] w-full rounded-[1.75rem] object-cover shadow-soft sm:rounded-[2rem]"
             src={images.connection}
             alt="A parent and child sharing a quiet conversation by a window."
+            width="800"
+            height="600"
+            loading="lazy"
           />
           </Reveal>
           <div className="space-y-3 sm:space-y-4">
