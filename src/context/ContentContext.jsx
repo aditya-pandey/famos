@@ -1,11 +1,15 @@
 import { createContext, useState, useEffect } from 'react';
-import { images } from '../data/site.js';
+import { images, stats as fallbackStats, pillars as fallbackPillars, pageContent as fallbackPageContent } from '../data/site.js';
 
 export const ContentContext = createContext();
 
 export const ContentProvider = ({ children }) => {
-  const [content, setContent] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [content, setContent] = useState({
+    stats: fallbackStats,
+    pillars: fallbackPillars,
+    pageContent: fallbackPageContent
+  });
+  const [loading, setLoading] = useState(false);
 
   // This maps the slugs from your Google Sheet to your local images
   const imageMap = {
@@ -66,10 +70,7 @@ export const ContentProvider = ({ children }) => {
       });
   }, []);
 
-  // Show a blank screen or a loading spinner while fetching
-  if (loading) {
-    return <div style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Loading...</div>;
-  }
+
 
   return (
     <ContentContext.Provider value={content}>
