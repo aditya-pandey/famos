@@ -1,4 +1,21 @@
-import { Check, Compass, HeartHandshake } from 'lucide-react';
+import {
+  Puzzle, CalendarClock, Brain,
+  Link, Sparkles, ShieldCheck,
+  Gamepad2, Gift, TrendingUp,
+  UserCheck, FileText, Sliders,
+  HeartCrack, InfinityIcon,
+  Smile, Clock, LayoutDashboard,
+  HeartHandshake, Compass, Check
+} from 'lucide-react';
+
+const iconMap = {
+  'why-famos': [Puzzle, CalendarClock, Brain],
+  'for-parents': [Link, Sparkles, ShieldCheck],
+  'for-teens': [Gamepad2, Gift, TrendingUp],
+  'for-counsellors': [UserCheck, FileText, Sliders],
+  'about-us': [HeartCrack, Brain, InfinityIcon],
+  'schools': [Smile, Clock, LayoutDashboard],
+};
 import { useEffect, lazy, Suspense } from 'react';
 import Button from '../components/Button.jsx';
 const ContactForm = lazy(() => import('../components/ContactForm.jsx'));
@@ -44,17 +61,20 @@ export default function Page({ page }) {
 
       <Section className="bg-white" eyebrow="What changes" title="Designed to make support feel lighter, clearer, and more human.">
         <div className="grid gap-4 lg:grid-cols-3">
-          {page.sections.map(([title, text], index) => (
-            <Reveal key={title} delay={index * 80}>
-            <Card className="h-full">
-              <div className="mb-5 grid h-11 w-11 place-items-center rounded-2xl bg-orange-100 text-orange-700">
-                <Check aria-hidden="true" size={22} />
-              </div>
-              <h2 className="font-display text-xl font-bold text-teal-900">{title}</h2>
-              <p className="mt-4 leading-7 text-muted">{text}</p>
-            </Card>
-            </Reveal>
-          ))}
+          {page.sections.map(([title, text], index) => {
+            const Icon = (iconMap[page.slug] && iconMap[page.slug][index]) || Check;
+            return (
+              <Reveal key={title} delay={index * 80}>
+              <Card className="h-full">
+                <div className="mb-5 grid h-11 w-11 place-items-center rounded-2xl bg-orange-100 text-orange-700">
+                  <Icon aria-hidden="true" size={22} />
+                </div>
+                <h2 className="font-display text-xl font-bold text-teal-900">{title}</h2>
+                <p className="mt-4 leading-7 text-muted">{text}</p>
+              </Card>
+              </Reveal>
+            );
+          })}
         </div>
       </Section>
 
