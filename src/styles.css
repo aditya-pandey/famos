@@ -52,6 +52,13 @@ textarea {
   filter: blur(0);
 }
 
+@media (max-width: 768px) {
+  .reveal-motion {
+    filter: none !important;
+    will-change: opacity, transform;
+  }
+}
+
 .stagger-list > * {
   opacity: 0;
   transform: translateY(10px);

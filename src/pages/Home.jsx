@@ -145,11 +145,11 @@
 // }
 
 
-import { useContext } from 'react';
+import { useContext, lazy, Suspense } from 'react';
 import { ContentContext } from '../context/ContentContext.jsx';
 import { HeartHandshake, ShieldCheck, Sparkles } from 'lucide-react';
 import Button from '../components/Button.jsx';
-import ContactForm from '../components/ContactForm.jsx';
+const ContactForm = lazy(() => import('../components/ContactForm.jsx'));
 import Reveal from '../components/Reveal.jsx';
 import { Card, Section } from '../components/Section.jsx';
 import { images } from '../data/site.js';
@@ -295,7 +295,9 @@ export default function Home() {
               Tell us who you are and what you are building toward. We will help you find the right famos pathway for your family, counselling practice, or school.
             </p>
           </div>
-          <ContactForm />
+          <Suspense fallback={<div className="p-5 sm:p-8 text-teal-50">Loading form...</div>}>
+            <ContactForm />
+          </Suspense>
         </div>
       </Section>
     </>

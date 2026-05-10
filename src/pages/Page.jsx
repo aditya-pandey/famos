@@ -1,7 +1,7 @@
 import { Check, Compass, HeartHandshake } from 'lucide-react';
-import { useEffect } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import Button from '../components/Button.jsx';
-import ContactForm from '../components/ContactForm.jsx';
+const ContactForm = lazy(() => import('../components/ContactForm.jsx'));
 import Reveal from '../components/Reveal.jsx';
 import { Card, Section } from '../components/Section.jsx';
 
@@ -82,7 +82,9 @@ export default function Page({ page }) {
           <p className="max-w-xl text-base leading-7 text-teal-50/80 sm:text-lg sm:leading-8">
             Share a little about what you need. We will follow up with the most relevant famos pathway.
           </p>
-          <ContactForm />
+          <Suspense fallback={<div className="p-5 sm:p-8 text-teal-50">Loading form...</div>}>
+            <ContactForm />
+          </Suspense>
         </div>
       </Section>
     </>
