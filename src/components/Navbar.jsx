@@ -85,6 +85,9 @@ export default function Navbar() {
   // 3. Pull the pages directly from your Google Sheet
   const { pageContent } = useContext(ContentContext);
 
+  const otherPages = pageContent ? pageContent.filter(p => p.slug !== 'about-us') : [];
+  const aboutUsPage = pageContent ? pageContent.find(p => p.slug === 'about-us') : null;
+
   const linkClass = ({ isActive }) =>
     `rounded-full px-3 py-2 text-sm font-semibold transition lg:px-3 ${
       isActive ? 'bg-teal-50 text-teal-900' : 'text-muted hover:bg-white hover:text-teal-900'
@@ -96,12 +99,25 @@ export default function Navbar() {
         <Logo onClick={() => setOpen(false)} />
 
         <div className="hidden items-center gap-0.5 lg:flex">
-          {/* 4. Loop through pageContent instead of a hardcoded array */}
-          {pageContent && pageContent.map((page) => (
+          {otherPages.map((page) => (
             <NavLink key={page.path} to={page.path} className={linkClass}>
               {page.eyebrow}
             </NavLink>
           ))}
+          {aboutUsPage && (
+            <NavLink
+              to={aboutUsPage.path}
+              className={({ isActive }) =>
+                `rounded-full px-3.5 py-2 text-sm font-bold transition lg:px-3.5 ml-1.5 ${
+                  isActive
+                    ? 'bg-teal-100 text-teal-950 border border-teal-700/20 shadow-soft'
+                    : 'bg-teal-50/70 text-teal-800 border border-teal-700/10 hover:bg-teal-100/50 hover:text-teal-900'
+                }`
+              }
+            >
+              {aboutUsPage.eyebrow}
+            </NavLink>
+          )}
         </div>
 
         <div className="hidden lg:block">
@@ -122,12 +138,26 @@ export default function Navbar() {
       {open ? (
         <div className="border-t border-teal-700/10 bg-mist px-4 py-4 shadow-soft lg:hidden">
           <div className="mx-auto flex max-w-7xl flex-col gap-1.5">
-            {/* 5. Same update for the mobile menu links */}
-            {pageContent && pageContent.map((page) => (
+            {otherPages.map((page) => (
               <NavLink key={page.path} to={page.path} className={linkClass} onClick={() => setOpen(false)}>
                 {page.eyebrow}
               </NavLink>
             ))}
+            {aboutUsPage && (
+              <NavLink
+                to={aboutUsPage.path}
+                className={({ isActive }) =>
+                  `rounded-full px-3 py-2 text-sm font-bold transition ${
+                    isActive
+                      ? 'bg-teal-100 text-teal-950 border border-teal-700/20 shadow-soft'
+                      : 'bg-teal-50/70 text-teal-800 border border-teal-700/10 hover:bg-teal-100/50 hover:text-teal-900'
+                  }`
+                }
+                onClick={() => setOpen(false)}
+              >
+                {aboutUsPage.eyebrow}
+              </NavLink>
+            )}
             <Button to="/#contact" className="mt-3" icon={false} onClick={() => setOpen(false)}>
               Get early access
             </Button>

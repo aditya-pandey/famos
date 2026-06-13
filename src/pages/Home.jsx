@@ -300,6 +300,9 @@ export default function Home() {
             <p className="max-w-xl text-base leading-7 text-teal-50/80 sm:text-lg sm:leading-8">
               Tell us who you are and what you are building toward. We will help you find the right famos pathway for your family, counselling practice, or school.
             </p>
+            <p className="mt-4 max-w-xl text-base leading-7 text-teal-50/80 sm:text-lg sm:leading-8">
+              Questions? Reach out to us at <a href="mailto:hello@famosnetwork.com" className="font-semibold text-teal-300 hover:underline">hello@famosnetwork.com</a>
+            </p>
           </div>
           <Suspense fallback={<div className="p-5 sm:p-8 text-teal-50">Loading form...</div>}>
             <ContactForm />

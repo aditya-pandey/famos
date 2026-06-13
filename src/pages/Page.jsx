@@ -45,6 +45,14 @@ export default function Page({ page }) {
               <Button href="#contact" className="w-full sm:w-auto">{page.cta}</Button>
               <Button to="/" variant="secondary" className="w-full sm:w-auto">Back home</Button>
             </div>
+            {page.slug === 'about-us' && (
+              <p className="mt-4 text-sm text-muted">
+                Or email us directly at{' '}
+                <a href="mailto:hello@famosnetwork.com" className="font-semibold text-teal-700 hover:underline">
+                  hello@famosnetwork.com
+                </a>
+              </p>
+            )}
           </Reveal>
           <Reveal delay={140}>
             <img 
@@ -99,9 +107,14 @@ export default function Page({ page }) {
 
       <Section id="contact" className="bg-teal-900 text-white" eyebrow="Start the conversation" title={page.cta} inverted>
         <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:gap-8">
-          <p className="max-w-xl text-base leading-7 text-teal-50/80 sm:text-lg sm:leading-8">
-            Share a little about what you need. We will follow up with the most relevant famos pathway.
-          </p>
+          <div>
+            <p className="max-w-xl text-base leading-7 text-teal-50/80 sm:text-lg sm:leading-8">
+              Share a little about what you need. We will follow up with the most relevant famos pathway.
+            </p>
+            <p className="mt-4 max-w-xl text-base leading-7 text-teal-50/80 sm:text-lg sm:leading-8">
+              Questions? Reach out to us at <a href="mailto:hello@famosnetwork.com" className="font-semibold text-teal-300 hover:underline">hello@famosnetwork.com</a>
+            </p>
+          </div>
           <Suspense fallback={<div className="p-5 sm:p-8 text-teal-50">Loading form...</div>}>
             <ContactForm />
           </Suspense>

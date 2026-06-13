@@ -70,6 +70,7 @@ export default function Footer() {
       </div>
       <div className="mx-auto flex max-w-7xl flex-col gap-3 border-t border-white/10 px-4 py-6 text-xs text-teal-50/70 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
         <span>© {new Date().getFullYear()} famos. All rights reserved.</span>
+        <span>Contact: <a href="mailto:hello@famosnetwork.com" className="hover:underline">hello@famosnetwork.com</a></span>
         <span>Built for trust, care, and better conversations.</span>
       </div>
     </footer>
