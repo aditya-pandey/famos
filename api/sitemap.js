@@ -1,6 +1,7 @@
 import { createClient } from '@sanity/client';
 
 const siteUrl = process.env.VITE_SITE_URL || 'https://www.famosnetwork.com';
+const hiddenPostSlugs = ['test1'];
 const staticRoutes = [
   '/',
   '/why-famos',
@@ -46,12 +47,13 @@ async function getPosts() {
   return client.fetch(`*[
     _type == "post"
     && defined(slug.current)
+    && !(slug.current in $hiddenPostSlugs)
     && defined(publishedAt)
     && publishedAt <= now()
   ]{
     "slug": slug.current,
     "lastmod": coalesce(_updatedAt, publishedAt)
-  }`);
+  }`, { hiddenPostSlugs });
 }
 
 export default async function handler(request, response) {

@@ -13,6 +13,7 @@ export const isSanityConfigured = Boolean(sanityConfig.projectId && sanityConfig
 export const sanityClient = isSanityConfigured ? createClient(sanityConfig) : null;
 
 const builder = sanityClient ? imageUrlBuilder(sanityClient) : null;
+const hiddenPostSlugs = ['test1'];
 
 export function urlForImage(source) {
   return source && builder ? builder.image(source) : null;
@@ -77,11 +78,12 @@ export async function fetchPosts() {
   return sanityClient.fetch(`*[
     _type == "post"
     && defined(slug.current)
+    && !(slug.current in $hiddenPostSlugs)
     && defined(publishedAt)
     && publishedAt <= now()
   ] | order(publishedAt desc) {
     ${postCardFields}
-  }`);
+  }`, { hiddenPostSlugs });
 }
 
 export async function fetchPostBySlug(slug) {
@@ -90,11 +92,12 @@ export async function fetchPostBySlug(slug) {
   return sanityClient.fetch(`*[
     _type == "post"
     && slug.current == $slug
+    && !(slug.current in $hiddenPostSlugs)
     && defined(publishedAt)
     && publishedAt <= now()
   ][0] {
     ${postFields}
-  }`, { slug });
+  }`, { slug, hiddenPostSlugs });
 }
 
 export async function fetchRelatedPosts(categorySlug, currentSlug) {
@@ -104,12 +107,13 @@ export async function fetchRelatedPosts(categorySlug, currentSlug) {
     _type == "post"
     && defined(slug.current)
     && slug.current != $currentSlug
+    && !(slug.current in $hiddenPostSlugs)
     && category->slug.current == $categorySlug
     && defined(publishedAt)
     && publishedAt <= now()
   ] | order(publishedAt desc)[0...3] {
     ${postCardFields}
-  }`, { categorySlug, currentSlug });
+  }`, { categorySlug, currentSlug, hiddenPostSlugs });
 }
 
 export async function fetchAdjacentPosts(publishedAt, slug) {
@@ -120,6 +124,7 @@ export async function fetchAdjacentPosts(publishedAt, slug) {
       _type == "post"
       && defined(slug.current)
       && slug.current != $slug
+      && !(slug.current in $hiddenPostSlugs)
       && publishedAt < $publishedAt
       && publishedAt <= now()
     ] | order(publishedAt desc)[0] {
@@ -130,11 +135,12 @@ export async function fetchAdjacentPosts(publishedAt, slug) {
       _type == "post"
       && defined(slug.current)
       && slug.current != $slug
+      && !(slug.current in $hiddenPostSlugs)
       && publishedAt > $publishedAt
       && publishedAt <= now()
     ] | order(publishedAt asc)[0] {
       title,
       "slug": slug.current
     }
-  }`, { publishedAt, slug });
+  }`, { publishedAt, slug, hiddenPostSlugs });
 }
