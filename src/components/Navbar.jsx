@@ -99,9 +99,6 @@ export default function Navbar() {
         <Logo onClick={() => setOpen(false)} />
 
         <div className="hidden items-center gap-0.5 lg:flex">
-          <NavLink to="/blog" className={linkClass}>
-            Blog
-          </NavLink>
           {otherPages.map((page) => (
             <NavLink key={page.path} to={page.path} className={linkClass}>
               {page.eyebrow}
@@ -121,6 +118,9 @@ export default function Navbar() {
               {aboutUsPage.eyebrow}
             </NavLink>
           )}
+          <NavLink to="/blog" className={linkClass}>
+            Blog
+          </NavLink>
         </div>
 
         <div className="hidden lg:block">
@@ -141,9 +141,6 @@ export default function Navbar() {
       {open ? (
         <div className="border-t border-teal-700/10 bg-mist px-4 py-4 shadow-soft lg:hidden">
           <div className="mx-auto flex max-w-7xl flex-col gap-1.5">
-            <NavLink to="/blog" className={linkClass} onClick={() => setOpen(false)}>
-              Blog
-            </NavLink>
             {otherPages.map((page) => (
               <NavLink key={page.path} to={page.path} className={linkClass} onClick={() => setOpen(false)}>
                 {page.eyebrow}
@@ -164,6 +161,9 @@ export default function Navbar() {
                 {aboutUsPage.eyebrow}
               </NavLink>
             )}
+            <NavLink to="/blog" className={linkClass} onClick={() => setOpen(false)}>
+              Blog
+            </NavLink>
             <Button to="/#contact" className="mt-3" icon={false} onClick={() => setOpen(false)}>
               Get early access
             </Button>
