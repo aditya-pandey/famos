@@ -146,7 +146,7 @@
 
 
 import { useContext, lazy, Suspense, useEffect } from 'react';
-import { ContentContext } from '../context/ContentContext.jsx';
+import { ContentContext } from '../context/contentContext';
 import { HeartHandshake, ShieldCheck, Sparkles } from 'lucide-react';
 import Button from '../components/Button.jsx';
 const ContactForm = lazy(() => import('../components/ContactForm.jsx'));
@@ -208,7 +208,7 @@ export default function Home() {
               alt="A smiling family sitting together in a sunlit living room."
               width="800"
               height="600"
-              fetchpriority="high"
+              fetchPriority="high"
             />
             <div className="motion-card absolute bottom-3 left-3 right-3 rounded-card border border-white/60 bg-white/90 p-4 shadow-soft backdrop-blur sm:bottom-4 sm:left-auto sm:right-4 sm:w-72">
               <p className="text-sm font-extrabold text-teal-900">Today’s rhythm</p>

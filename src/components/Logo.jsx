@@ -15,7 +15,7 @@ export default function Logo({ className = '', markClassName = '', onClick }) {
         alt="famos"
         width="144"
         height="44"
-        fetchpriority="high"
+        fetchPriority="high"
       />
     </Link>
   );

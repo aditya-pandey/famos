@@ -1,7 +1,7 @@
 import { CheckCircle2, Send } from 'lucide-react';
 import { useState } from 'react';
-import { collection, addDoc } from "firebase/firestore";
-import { db } from "../firebase";
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
+import { db } from '../firebase';
 
 const initial = { name: '', email: '', message: '' };
 
@@ -9,49 +9,48 @@ export default function ContactForm() {
   const [form, setForm] = useState(initial);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
+  const [isSending, setIsSending] = useState(false);
 
   function updateField(event) {
     setForm((current) => ({ ...current, [event.target.name]: event.target.value }));
     setError('');
+    setSubmitted(false);
   }
 
   async function handleSubmit(event) {
     event.preventDefault();
+    if (isSending) return;
+
     if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
       setError('Please fill in all fields.');
       return;
     }
+
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
       setError('Please enter a valid email address.');
       return;
     }
+
+    setIsSending(true);
+    setError('');
+
     try {
+      await addDoc(collection(db, 'contacts'), {
+        name: form.name.trim(),
+        email: form.email.trim().toLowerCase(),
+        message: form.message.trim(),
+        source: 'website-contact-form',
+        createdAt: serverTimestamp(),
+      });
 
-  // Save to Firebase
-  await addDoc(collection(db, "contacts"), {
-    name: form.name,
-    email: form.email,
-    message: form.message,
-    createdAt: new Date(),
-  });
-
-  // Send to Google Sheets
-  await fetch("https://script.google.com/macros/s/AKfycby1TiXSLE2NUD_N8epXQuvXS_J2FJ4XgREfdtUv6GwHAkIpMLgv-OqxK-hgHGpNpDDC/exec", {
-    method: "POST",
-    body: JSON.stringify({
-      name: form.name,
-      email: form.email,
-      message: form.message,
-    }),
-  });
-
-  setSubmitted(true);
-  setForm(initial);
-
-} catch (err) {
-  console.error(err);
-  setError("Something went wrong. Please try again.");
-}
+      setSubmitted(true);
+      setForm(initial);
+    } catch (err) {
+      console.error(err);
+      setError('We could not send this yet. Please try again in a moment or email hello@famosnetwork.com.');
+    } finally {
+      setIsSending(false);
+    }
   }
 
   return (
@@ -91,14 +90,22 @@ export default function ContactForm() {
           />
         </label>
       </div>
-      {error ? <p className="mt-4 text-sm font-semibold text-orange-700" role="alert">{error}</p> : null}
+      {error ? (
+        <p className="mt-4 text-sm font-semibold text-orange-700" role="alert">
+          {error}
+        </p>
+      ) : null}
       {submitted ? (
         <p className="mt-4 flex items-center gap-2 rounded-2xl bg-teal-50 px-4 py-3 text-sm font-bold text-teal-900" role="status">
           <CheckCircle2 aria-hidden="true" size={18} /> Thanks. We received your note and will respond soon.
         </p>
       ) : null}
-      <button className="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-teal-700 px-5 py-3 text-sm font-bold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-teal-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700 sm:w-auto" type="submit">
-        Send message <Send aria-hidden="true" size={17} />
+      <button
+        className="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-teal-700 px-5 py-3 text-sm font-bold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-teal-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700 sm:w-auto disabled:cursor-not-allowed disabled:opacity-60"
+        type="submit"
+        disabled={isSending}
+      >
+        {isSending ? 'Sending...' : 'Send message'} <Send aria-hidden="true" size={17} />
       </button>
     </form>
   );

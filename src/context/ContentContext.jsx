@@ -1,7 +1,15 @@
-import { createContext, useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { images, stats as fallbackStats, pillars as fallbackPillars, pageContent as fallbackPageContent } from '../data/site.js';
+import { ContentContext } from './contentContext';
 
-export const ContentContext = createContext();
+const imageMap = {
+  'why-famos': images.connection,
+  'for-parents': images.parent,
+  'for-teens': images.teen,
+  'for-counsellors': images.counsellor,
+  'about-us': images.family,
+  'schools': images.school,
+};
 
 export const ContentProvider = ({ children }) => {
   const [content, setContent] = useState({
@@ -9,17 +17,6 @@ export const ContentProvider = ({ children }) => {
     pillars: fallbackPillars,
     pageContent: fallbackPageContent
   });
-  const [loading, setLoading] = useState(false);
-
-  // This maps the slugs from your Google Sheet to your local images
-  const imageMap = {
-    'why-famos': images.connection,
-    'for-parents': images.parent,
-    'for-teens': images.teen,
-    'for-counsellors': images.counsellor,
-    'about-us': images.family,
-    'schools': images.school,
-  };
 
   useEffect(() => {
     // ⚠️ PASTE YOUR GOOGLE SCRIPT URL BELOW ⚠️
@@ -61,12 +58,9 @@ export const ContentProvider = ({ children }) => {
           pillars: formattedPillars,
           pageContent: formattedPages
         });
-        
-        setLoading(false);
       })
       .catch(err => {
         console.error("Failed to fetch content from Google Sheets:", err);
-        setLoading(false);
       });
   }, []);
 

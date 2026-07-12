@@ -47,10 +47,12 @@ import ReactGA from 'react-ga4';
 import Footer from './components/Footer.jsx';
 import Navbar from './components/Navbar.jsx';
 // 1. Import our new ContentContext
-import { ContentContext } from './context/ContentContext.jsx';
+import { ContentContext } from './context/contentContext';
 
 const Home = lazy(() => import('./pages/Home.jsx'));
 const Page = lazy(() => import('./pages/Page.jsx'));
+const BlogList = lazy(() => import('./pages/BlogList.jsx'));
+const BlogPost = lazy(() => import('./pages/BlogPost.jsx'));
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -85,6 +87,8 @@ export default function App() {
         <Suspense fallback={<div className="flex min-h-screen items-center justify-center text-teal-900 font-medium">Loading...</div>}>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/blog" element={<BlogList />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
             {/* 3. This will now generate routes dynamically from your Sheet! */}
             {pageContent && pageContent.map((page) => (
               <Route key={page.slug} path={page.path} element={<Page page={page} />} />

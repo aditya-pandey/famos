@@ -44,7 +44,7 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from './Logo.jsx';
 // 2. Import the ContentContext
-import { ContentContext } from '../context/ContentContext.jsx';
+import { ContentContext } from '../context/contentContext';
 
 export default function Footer() {
   // 3. Pull the pages directly from your Google Sheet
@@ -60,6 +60,9 @@ export default function Footer() {
           </p>
         </div>
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:justify-items-end lg:self-center">
+          <Link to="/blog" className="text-sm font-semibold text-teal-50/80 transition hover:text-white">
+            Blog
+          </Link>
           {/* 4. Loop through the Google Sheet data instead of the hardcoded array */}
           {pageContent && pageContent.map((page) => (
             <Link key={page.path} to={page.path} className="text-sm font-semibold text-teal-50/80 transition hover:text-white">

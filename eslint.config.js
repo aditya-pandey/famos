@@ -7,7 +7,19 @@ import globals from 'globals';
 export default [
   { ignores: ['dist'] },
   {
+    files: ['api/**/*.js', 'sanity.config.js', 'sanity.cli.js'],
+    languageOptions: {
+      ecmaVersion: 'latest',
+      globals: globals.node,
+      sourceType: 'module',
+    },
+    rules: {
+      ...js.configs.recommended.rules,
+    },
+  },
+  {
     files: ['**/*.{js,jsx}'],
+    ignores: ['api/**/*.js', 'sanity.config.js', 'sanity.cli.js'],
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,

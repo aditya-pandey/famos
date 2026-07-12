@@ -77,7 +77,7 @@ import { NavLink } from 'react-router-dom';
 import Button from './Button.jsx';
 import Logo from './Logo.jsx';
 // 2. Import the Context
-import { ContentContext } from '../context/ContentContext.jsx';
+import { ContentContext } from '../context/contentContext';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -99,6 +99,9 @@ export default function Navbar() {
         <Logo onClick={() => setOpen(false)} />
 
         <div className="hidden items-center gap-0.5 lg:flex">
+          <NavLink to="/blog" className={linkClass}>
+            Blog
+          </NavLink>
           {otherPages.map((page) => (
             <NavLink key={page.path} to={page.path} className={linkClass}>
               {page.eyebrow}
@@ -138,6 +141,9 @@ export default function Navbar() {
       {open ? (
         <div className="border-t border-teal-700/10 bg-mist px-4 py-4 shadow-soft lg:hidden">
           <div className="mx-auto flex max-w-7xl flex-col gap-1.5">
+            <NavLink to="/blog" className={linkClass} onClick={() => setOpen(false)}>
+              Blog
+            </NavLink>
             {otherPages.map((page) => (
               <NavLink key={page.path} to={page.path} className={linkClass} onClick={() => setOpen(false)}>
                 {page.eyebrow}

@@ -61,7 +61,7 @@ export default function Page({ page }) {
               alt={page.alt} 
               width="800"
               height="600"
-              fetchpriority="high"
+              fetchPriority="high"
             />
           </Reveal>
         </div>
